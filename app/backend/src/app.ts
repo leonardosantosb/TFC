@@ -1,10 +1,12 @@
 import * as express from 'express';
-
+import teamsRouter from './routes/teamsRoutes';
 class App {
   public app: express.Express;
 
   constructor() {
     this.app = express();
+    // this.app.use(express.json());
+    this.routes();
 
     this.config();
 
@@ -12,6 +14,9 @@ class App {
     this.app.get('/', (req, res) => res.json({ ok: true }));
   }
 
+  private routes():void {
+    this.app.use('/teams', teamsRouter);
+  }
   private config():void {
     const accessControl: express.RequestHandler = (_req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*');

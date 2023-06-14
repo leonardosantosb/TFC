@@ -58,6 +58,6 @@ Matches.init({
   timestamps: false,
 });
 
-Teams.belongsTo(Matches, { foreignKey: 'home_team_id', as: 'id' });
+// Teams.belongsTo(Matches, { foreignKey: 'home_team_id', as: 'id' });
 
 export default Matches;
