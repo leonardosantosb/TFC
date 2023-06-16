@@ -24,4 +24,14 @@ export default class UsersService {
     const token = this.tokenGenerator.generate(user);
     return { status: 200, data: { token } };
   }
+
+  public async getRole(id: string) {
+    const user = await this.usersModel.findOne({ where: { id } });
+
+    if (!user) {
+      return { status: 404, data: { message: 'User not found' } };
+    }
+    const { role } = user.dataValues;
+    return { status: 200, data: role };
+  }
 }
