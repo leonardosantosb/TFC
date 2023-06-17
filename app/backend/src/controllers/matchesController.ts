@@ -20,4 +20,10 @@ export default class MatchesController {
     }
     return res.status(status).json(data);
   }
+
+  public async matchesEnded(_req: Request, res: Response) {
+    const { id } = _req.params;
+    const { status, data } = await this.matchesService.matchesEnded(id);
+    return res.status(status).json(data);
+  }
 }

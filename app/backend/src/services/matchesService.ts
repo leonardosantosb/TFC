@@ -15,4 +15,9 @@ export default class MatchesService {
     });
     return { status: 200, data: allMatches };
   }
+
+  public async matchesEnded(id: string) {
+    await this.matchesModel.update({ inProgress: false }, { where: { id } });
+    return { status: 200, data: { message: 'Finished' } };
+  }
 }
