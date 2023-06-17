@@ -26,4 +26,12 @@ export default class MatchesController {
     const { status, data } = await this.matchesService.matchesEnded(id);
     return res.status(status).json(data);
   }
+
+  public async matchesScored(_req: Request, res: Response) {
+    const { id } = _req.params;
+    const { homeTeamGoals, awayTeamGoals } = _req.body;
+    const { status, data } = await this.matchesService
+      .matchesScored(id, homeTeamGoals, awayTeamGoals);
+    return res.status(status).json(data);
+  }
 }

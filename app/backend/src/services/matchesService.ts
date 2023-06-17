@@ -20,4 +20,12 @@ export default class MatchesService {
     await this.matchesModel.update({ inProgress: false }, { where: { id } });
     return { status: 200, data: { message: 'Finished' } };
   }
+
+  public async matchesScored(id: string, homeTeamGoals: number, awayTeamGoals: number) {
+    const changeScore = await this.matchesModel.update(
+      { homeTeamGoals, awayTeamGoals },
+      { where: { id } },
+    );
+    return { status: 200, data: changeScore };
+  }
 }

@@ -9,5 +9,6 @@ const matchesRouter = Router();
 matchesRouter.get('/', (req, res) => matchesController.getAllMatches(req, res));
 matchesRouter.patch('/:id/finish', tokenValidation, (req, res) =>
   matchesController.matchesEnded(req, res));
-
+matchesRouter.patch('/:id', tokenValidation, (req, res) =>
+  matchesController.matchesScored(req, res));
 export default matchesRouter;
