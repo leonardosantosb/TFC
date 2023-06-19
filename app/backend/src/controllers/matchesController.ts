@@ -34,4 +34,12 @@ export default class MatchesController {
       .matchesScored(id, homeTeamGoals, awayTeamGoals);
     return res.status(status).json(data);
   }
+
+  public async createMatches(_req: Request, res: Response) {
+    const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = _req.body;
+    const { status, data } = await this.matchesService
+      .createMatches(homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals);
+
+    return res.status(status).json(data);
+  }
 }

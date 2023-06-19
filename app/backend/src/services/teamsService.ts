@@ -11,7 +11,7 @@ export default class TeamsService {
   }
 
   public async findOne(id: string) {
-    const Oneteam = await this.teamsModel.findOne({ where: { id } });
+    const Oneteam = await this.teamsModel.findByPk(id);
     return { status: 200, data: Oneteam };
   }
 }

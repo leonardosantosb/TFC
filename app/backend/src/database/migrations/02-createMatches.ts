@@ -17,7 +17,9 @@ export default {
         references: {
           model: "teams",
           key: "id",
-        }
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       homeTeamGoals: {
         type: DataTypes.INTEGER,
@@ -31,7 +33,9 @@ export default {
         references: {
           model: "teams",
           key: "id",
-        }
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       awayTeamGoals: {
         type: DataTypes.INTEGER,

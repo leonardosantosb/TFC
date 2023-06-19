@@ -1,5 +1,6 @@
 import Teams from '../database/models/teamsModelsSequelize';
 import Matches from '../database/models/matchesModelsSequelize';
+import TeamsService from './teamsService';
 
 export default class MatchesService {
   constructor(
@@ -27,5 +28,25 @@ export default class MatchesService {
       { where: { id } },
     );
     return { status: 200, data: changeScore };
+  }
+
+  public async createMatches(
+    homeTeamId: number,
+    awayTeamId: number,
+    homeTeamGoals: number,
+    awayTeamGoals: number,
+  ) {
+    const teamsId = new TeamsService();
+    const homeT = await teamsId.findOne(String(homeTeamId));
+    const awayT = await teamsId.findOne(String(awayTeamId));
+    if (!homeT.data || !awayT.data) {
+      return { status: 404, data: { message: 'There is no team with such id!' } };
+    }
+    const newMatch = await this.matchesModel.create(
+      {
+        homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals, inProgress: true,
+      },
+    );
+    return { status: 201, data: newMatch };
   }
 }
