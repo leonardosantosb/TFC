@@ -10,7 +10,6 @@ export default class UsersService {
   ) {}
 
   public async findLogin(email: string, password: string) {
-    // const hash = await this.encrypter.encrypt(password);
     const messageError = 'Invalid email or password';
     const user = await this.usersModel.findOne({ where: { email } });
 

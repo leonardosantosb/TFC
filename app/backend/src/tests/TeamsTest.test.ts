@@ -7,9 +7,6 @@ import { app } from '../app';
 import teamsModel from '../database/models/teamsModelsSequelize';
 import mocksTeams from '../mocks/mocksTeams';
 
-// import { Response } from 'superagent';
-// import TeamsService from '../services/teamsService';
-
 chai.use(chaiHttp);
 
 const { expect } = chai
@@ -21,7 +18,7 @@ describe('Teams Test', function () {
     const response = await chai.request(app).get('/teams');
 
     expect(response.status).to.be.equal(200)
-    expect(response.body).to.be.deep.equal(mocksTeams)
+    expect(response.body).to.be.deep.equal(mocksTeams.getAllTeams)
   })
 
   it('get one team', async () => {
