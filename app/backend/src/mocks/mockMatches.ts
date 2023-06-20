@@ -1,44 +1,59 @@
 const allMatches = [
   {
     id: 1,
-    hometeamid: 16,
-    hometeamgoals: 1,
-    awayteamid: 8,
-    awayteamgoals: 1,
-    inprogress: false,
+    homeTeamId: 16,
+    homeTeamGoals: 1,
+    awayTeamId: 8,
+    awayTeamGoals: 1,
+    inProgress: false,
   },
   {
     id: 2,
-    hometeamid: 9,
-    hometeamgoals: 1,
-    awayteamid: 14,
-    awayteamgoals: 1,
-    inprogress: false,
+    homeTeamId: 9,
+    homeTeamGoals: 1,
+    awayTeamId: 14,
+    awayTeamgGals: 1,
+    inProgress: false,
   },
 ];
 
 const matchesEnded = [
   {
-    id: 3,
-    hometeamid: 16,
-    hometeamgoals: 1,
-    awayteamid: 8,
-    awayteamgoals: 1,
-    inprogress: false,
+    id: 1,
+    homeTeamId: 16,
+    homeTeamGoals: 1,
+    awayTeamId: 8,
+    awayTeamGoals: 1,
+    inProgress: false,
   }];
 
 const createMatches = [
   {
-    hometeamid: 4,
-    hometeamgoals: 3,
-    awayteamid: 11,
-    awayteamgoals: 0,
-    inprogress: true,
+    id: 4,
+    homeTeamId: 4,
+    homeTeamGoals: 3,
+    awayTeamId: 11,
+    awayTeamGoals: 0,
+    inProgress: true,
   },
 ];
+
+const create = {
+  homeTeamId: 4,
+  homeTeamGoals: 3,
+  awayTeamId: 11,
+  awayTeamGoals: 0,
+};
+const createError = {
+  homeTeamGoals: 3,
+  awayTeamId: 11,
+  awayTeamGoals: 0,
+};
 
 export default {
   allMatches,
   matchesEnded,
   createMatches,
+  create,
+  createError,
 };

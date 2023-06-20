@@ -44,17 +44,32 @@ describe('Matches Test', function () {
 
     expect(response.status).to.be.equal(200)
   })
-  // it('create Matches', async () => {
-  //   const create = matchesModel.build(mocksMatches.allMatches as any);
-  //   sinon.stub(matchesModel, 'create').resolves(create);
-  //   const response = await chai
-  //   .request(app)
-  //   .post('/matches')
-  //   .set('Authorization', mockUsers.token )
-  //   .send(mocksMatches.createMatches);
+  it('create Matches', async () => {
+    const create = matchesModel.build(mocksMatches.createMatches as any);
+    sinon.stub(matchesModel, 'create').resolves(create);
+    const response = await chai
+    .request(app)
+    .post('/matches')
+    .set('Authorization', mockUsers.token )
+    .send(mocksMatches.create);
 
-  //   // expect(response.status).to.be.equal(201)
+    expect(response.status).to.be.equal(201)
+
+  })
+  it('create Matches', async () => {
+    const create = matchesModel.build(mocksMatches.createMatches as any);
+    sinon.stub(matchesModel, 'create').resolves(create);
+    const response = await chai
+    .request(app)
+    .post('/matches')
+    .set('Authorization', mockUsers.token )
+    .send( mocksMatches.createError);
+
+    expect(response.status).to.be.equal(404)
+
+    expect(response.body).to.be.deep.equal({
+      message: 'There is no team with such id!'
+    })
     
-  //   expect(response.body).to.be.deep.equal({})
-  // })
+  })
 })
