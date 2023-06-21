@@ -56,7 +56,7 @@ describe('Matches Test', function () {
     expect(response.status).to.be.equal(201)
 
   })
-  it('create Matches', async () => {
+  it('Se nao tiver um dos times', async () => {
     const create = matchesModel.build(mocksMatches.createMatches as any);
     sinon.stub(matchesModel, 'create').resolves(create);
     const response = await chai
