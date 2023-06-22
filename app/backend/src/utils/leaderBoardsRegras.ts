@@ -1,16 +1,16 @@
 import LeaderBoards from '../Interfaces/leaderBoardsInterface';
 
 export default class LeaderBoardsClass {
-  private name: string;
-  private totalPoints: number;
-  private totalGames: number;
-  private totalVictories: number;
-  private totalDraws: number;
-  private totalLosses: number;
-  private goalsFavor: number;
-  private goalsOwn: number;
-  private goalsBalance: number;
-  private efficiency: number;
+  public name: string;
+  public totalPoints: number;
+  public totalGames: number;
+  public totalVictories: number;
+  public totalDraws: number;
+  public totalLosses: number;
+  public goalsFavor: number;
+  public goalsOwn: number;
+  public goalsBalance: number;
+  public efficiency: number;
 
   constructor(n: string, lBInterface: LeaderBoards[]) {
     this.name = n;
@@ -30,6 +30,7 @@ export default class LeaderBoardsClass {
     lBInterface.forEach((element) => {
       goalsF += element.goalsFavor;
     });
+
     return goalsF;
   };
 
@@ -38,6 +39,7 @@ export default class LeaderBoardsClass {
     lBInterface.forEach((element) => {
       goalsO += element.goalsOwn;
     });
+
     return goalsO;
   };
 

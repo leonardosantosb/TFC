@@ -15,7 +15,6 @@ export default class UserController {
   public async getRole(req: Request, res: Response): Promise<Response> {
     const { id } = req.body;
     const { data, status } = await this.userService.getRole(id);
-    console.log(data, status);
 
     return res.status(status).json({ role: data });
   }
